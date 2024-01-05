@@ -3,9 +3,9 @@ import mysql2 from "mysql2";
 import cors from "cors";
 import {
   DB_HOST,
-  DB_NAME,
-  DB_PASSWORD,
   DB_USER,
+  DB_PASSWORD,
+  DB_NAME,
   DB_PORT
 } from './config.js'
 
@@ -473,6 +473,6 @@ app.post("/NoteList/ClearAll", (req, resp) => {
 
 ////////////////////////////////////////////////////////////////////////
 
-// app.listen(DB_PORT, () => {
-//   console.log("Connected to the server!");
-// })
+app.listen(8800, () => {
+  console.log("Connected to the server!");
+})
