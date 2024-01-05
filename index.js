@@ -473,6 +473,6 @@ app.post("/NoteList/ClearAll", (req, resp) => {
 
 ////////////////////////////////////////////////////////////////////////
 
-app.listen(8800, () => {
-  console.log("Connected to the server!");
-})
+// app.listen(8800, () => {
+//   console.log("Connected to the server!");
+// })
