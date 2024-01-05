@@ -473,6 +473,6 @@ app.post("/NoteList/ClearAll", (req, resp) => {
 
 ////////////////////////////////////////////////////////////////////////
 
-app.listen(DB_PORT, () => {
-  console.log("Connected to the server!");
-})
+// app.listen(DB_PORT, () => {
+//   console.log("Connected to the server!");
+// })
