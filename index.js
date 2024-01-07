@@ -6,6 +6,7 @@ const app = express();
 app.use(express.json())
 app.use(cors())
 
+//Testing Delete for production
 app.get('/TestingAPI', (req, resp) => {
   resp.send("API for todo-app tested")
 })
@@ -93,10 +94,12 @@ app.post("/TaskCurrent/NewTaskFromNote", (req, resp) => {
 
 //Read
 
+//Testing Delete for production
 //Task component
 app.get("/", (req, resp) => {
   resp.json("Hello from the backend of todo!")
 });
+//Testing Delete for production
 
 app.get("/ProjectList", (req, resp) => {
   const q = "SELECT * FROM ProjectList";
@@ -335,7 +338,7 @@ app.put("/NoteList/:id", (req, resp) => {
 })
 
 //Timer Component
-// await axios.patch("http://localhost:8800/TaskCurrent/" + currentTimerId, timerInput)
+// await axios.patch("https://todo-api-teal.vercel.app/TaskCurrent/" + currentTimerId, timerInput)
 app.patch("/TaskCurrent/:id", (req, resp) => {
   const timerId = req.params.id;
   const q = "UPDATE `TaskCurrent` SET `task_title` = ?, `focus_amount` = ?, `is_checked` = ? WHERE id = ?"
@@ -458,6 +461,8 @@ app.post("/NoteList/ClearAll", (req, resp) => {
 
 ////////////////////////////////////////////////////////////////////////
 
+//Testing Delete for production
 app.listen(8800, () => {
   console.log("Connected to the server!");
 })
+//Testing Delete for production
