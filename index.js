@@ -6,7 +6,7 @@ const app = express();
 app.use(express.json())
 app.use(cors())
 
-app.post('/TestingAPI', (req, resp) => {
+app.get('/TestingAPI', (req, resp) => {
   resp.send("API for todo-app tested")
 })
 
