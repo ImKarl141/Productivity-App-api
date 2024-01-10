@@ -6,6 +6,11 @@ const app = express();
 app.use(express.json())
 app.use(cors())
 
+//Testing Delete for production
+app.get('/TestingAPI', (req, resp) => {
+  resp.send("API for todo-app tested")
+})
+
 //Create 
 
 //Task Component
@@ -255,6 +260,39 @@ app.patch("/TaskCurrent/AddPomo/:id", (req, resp) => {
   })
 })
 
+// app.patch("/TaskCurrent/AddPomo/:id", (req, resp) => {
+//   const taskId = req.params.id
+//   const q = "UPDATE TaskCurrent SET `focus_finished` = ? WHERE id = ?"
+//   const values = [
+//     req.body.focus_finished,
+//   ]
+
+//   db.query(q, [...values, taskId], (err, data) => {
+//     if (err) return resp.json(err);
+//     console.log("Updated");
+//     return resp.json(data)
+//   })
+// })
+
+
+
+
+// app.patch("/UserSettings/CurrentTask/:id", (req, resp) => {
+//   const userId = req.params.id;
+//   const q = "UPDATE UserSettings SET `current_task` = ? WHERE id = ?"
+//   const values = [
+//     req.body.current_task,
+//   ]
+
+//   db.query(q, [...values, userId], (err, data) => {
+//     if (err) return resp.json(err);
+//     console.log("Settings changed Successfully");
+//     return resp.json(data);
+//   })
+// })
+
+// app.patch
+
 app.put("/ProjectList/:id", (req, resp) => {
   const projectId = req.params.id;
   const q = "UPDATE ProjectList SET `project_name` = ?, `project_color` = ? WHERE id = ?"
@@ -300,6 +338,7 @@ app.put("/NoteList/:id", (req, resp) => {
 })
 
 //Timer Component
+// await axios.patch("https://todo-api-teal.vercel.app/TaskCurrent/" + currentTimerId, timerInput)
 app.patch("/TaskCurrent/:id", (req, resp) => {
   const timerId = req.params.id;
   const q = "UPDATE `TaskCurrent` SET `task_title` = ?, `focus_amount` = ?, `is_checked` = ? WHERE id = ?"
@@ -327,7 +366,6 @@ app.patch("/NoteList/:id", (req, resp) => {
   })
 })
 
-////////////////////////////////////////////////////////////////////////
 
 //Delete
 
@@ -420,3 +458,11 @@ app.post("/NoteList/ClearAll", (req, resp) => {
     return resp.json("All Notes deleted successfully");
   })
 })
+
+////////////////////////////////////////////////////////////////////////
+
+//Testing Delete for production
+app.listen(8800, () => {
+  console.log("Connected to the server!");
+})
+//Testing Delete for production
