@@ -417,6 +417,7 @@ app.post("/NoteList/ClearAll", (req, resp) => {
 
 ////////////////////////////////////////////////////////////////////////
 
-app.listen(8800, () => {
-  console.log("Connected to the server!");
-})
+const server = app.listen(() => {
+  const port = server.address().port;
+  console.log(`Server is running on port ${port}`);
+});
