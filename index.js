@@ -416,9 +416,3 @@ app.post("/NoteList/ClearAll", (req, resp) => {
 })
 
 ////////////////////////////////////////////////////////////////////////
-
-//Testing Delete for production
-app.listen(8800, () => {
-  console.log("Connected to the server!");
-})
-//Testing Delete for production
