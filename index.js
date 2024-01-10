@@ -6,11 +6,6 @@ const app = express();
 app.use(express.json())
 app.use(cors())
 
-//Testing Delete for production
-app.get('/TestingAPI', (req, resp) => {
-  resp.send("API for todo-app tested")
-})
-
 //Create 
 
 //Task Component
@@ -71,6 +66,7 @@ app.post('/NoteList', (req, resp) => {
   })
 
 })
+
 //From Note to Task
 app.post("/TaskCurrent/NewTaskFromNote", (req, resp) => {
   const q = "INSERT INTO `TaskCurrent` (`task_title`, `task_desc`, `task_date`, `task_project`, `task_tag`, `focus_amount`, `is_checked`) VALUES (?)";
@@ -93,13 +89,6 @@ app.post("/TaskCurrent/NewTaskFromNote", (req, resp) => {
 ////////////////////////////////////////////////////////////////////////
 
 //Read
-
-//Testing Delete for production
-//Task component
-app.get("/", (req, resp) => {
-  resp.json("Hello from the backend of todo!")
-});
-//Testing Delete for production
 
 app.get("/ProjectList", (req, resp) => {
   const q = "SELECT * FROM ProjectList";
@@ -260,39 +249,6 @@ app.patch("/TaskCurrent/AddPomo/:id", (req, resp) => {
   })
 })
 
-// app.patch("/TaskCurrent/AddPomo/:id", (req, resp) => {
-//   const taskId = req.params.id
-//   const q = "UPDATE TaskCurrent SET `focus_finished` = ? WHERE id = ?"
-//   const values = [
-//     req.body.focus_finished,
-//   ]
-
-//   db.query(q, [...values, taskId], (err, data) => {
-//     if (err) return resp.json(err);
-//     console.log("Updated");
-//     return resp.json(data)
-//   })
-// })
-
-
-
-
-// app.patch("/UserSettings/CurrentTask/:id", (req, resp) => {
-//   const userId = req.params.id;
-//   const q = "UPDATE UserSettings SET `current_task` = ? WHERE id = ?"
-//   const values = [
-//     req.body.current_task,
-//   ]
-
-//   db.query(q, [...values, userId], (err, data) => {
-//     if (err) return resp.json(err);
-//     console.log("Settings changed Successfully");
-//     return resp.json(data);
-//   })
-// })
-
-// app.patch
-
 app.put("/ProjectList/:id", (req, resp) => {
   const projectId = req.params.id;
   const q = "UPDATE ProjectList SET `project_name` = ?, `project_color` = ? WHERE id = ?"
@@ -338,7 +294,7 @@ app.put("/NoteList/:id", (req, resp) => {
 })
 
 //Timer Component
-// await axios.patch("https://todo-api-teal.vercel.app/TaskCurrent/" + currentTimerId, timerInput)
+
 app.patch("/TaskCurrent/:id", (req, resp) => {
   const timerId = req.params.id;
   const q = "UPDATE `TaskCurrent` SET `task_title` = ?, `focus_amount` = ?, `is_checked` = ? WHERE id = ?"
